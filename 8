@@ -7,17 +7,17 @@ def translate_image(image, dx, dy):
     translated_image = cv2.warpAffine(image, translation_matrix, (cols, rows))
     return translated_image
 
-# Read the image
+
 image = cv2.imread(r"C:\Users\91636\OneDrive\Desktop\youtubelogo.png")
 
-# Get image dimensions
+
 height, width = image.shape[:2]
 
-# Calculate the center coordinates of the image
+
 center = (width // 2, height // 2)
 rotation_value = int(input("Enter the degree of Rotation:"))
 scaling_value = int(input("Enter the zooming factor:"))
-# Create the 2D rotation matrix
+
 rotated = cv2.getRotationMatrix2D(center=center, angle=rotation_value, scale=1)
 rotated_image = cv2.warpAffine(src=image, M=rotated, dsize=(width, height))
 scaled = cv2.getRotationMatrix2D(center=center, angle=0, scale=scaling_value)
